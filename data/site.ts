@@ -1,17 +1,13 @@
 export const site = {
   name: "Aryan Gupta",
-  initials: "AG",
-  headline: "Math + CS student at Carnegie Mellon",
+  headline: "Mathematics and Computer Science @ Carnegie Mellon University",
   status: "Open to software engineering internships",
   location: "Pittsburgh, PA",
-  photo: "/portrait.png",
-  photoAlt: "Portrait of Aryan Gupta",
   summary:
-    "I build reliable software across artificial intelligence, systems, and quantitative computing — turning hard technical problems into measurable, efficient systems.",
-  about: [
-    "I’m an undergraduate at Carnegie Mellon University pursuing a B.S. in Mathematical Sciences with an Additional Major in Computer Science. My work sits at the intersection of mathematical modeling, software engineering, and applied AI.",
-    "I like projects with real technical depth: OCR and vision-language pipelines, memory allocators, concurrent networking, and quantitative research tools. I’m especially interested in quantitative finance, high-performance computing, and systems that have to be both correct and fast.",
-  ],
+    "I love building things that solve problems I have and converting ideas into real projects!",
+  aboutTitle: "Education, interests, and stuff I'm passionate about",
+  interestsBlurb:
+    "Hi! My interests are in building systems and projects that either solve problems I have or deepen my understanding of certain things I don't know much about. I think there's nothing not worth learning about, and I love exploring things I've never learned about before! I am most passionate about going deep in the technical side of projects and really understanding the underlying implementations.",
   education: {
     school: "Carnegie Mellon University",
     degree: "B.S. Mathematical Sciences",
@@ -39,16 +35,12 @@ export const site = {
       "21-128 Mathematical Concepts and Proofs",
       "15-150 Principles of Functional Programming",
       "15-122 Principles of Imperative Computation",
+      "15-251 Great Ideas in Theoretical Computer Science",
+      "18-213 Introduction to Computer Systems",
+      "21-259 Calculus in Three Dimensions",
+      "21-260 Differential Equations",
     ],
   },
-  interests: [
-    "Quantitative finance",
-    "Systems programming",
-    "Artificial intelligence",
-    "Mathematical modeling",
-    "High-performance computing",
-    "Data analysis",
-  ],
   email: "aryangup@andrew.cmu.edu",
   phone: "" as string,
   github: "https://github.com/a-gupta123",
@@ -96,70 +88,61 @@ export const experience = [
 
 export const projects = [
   {
-    id: "document-boundary",
-    title: "Intelligent Document Boundary Detection",
-    category: "AI",
-    result: "~0.85 F1",
-    description:
-      "Evaluated Qwen, Tesseract, and PaddleOCR pipelines for splitting multi-page PDF batches into logical documents, with automated precision, recall, and runtime reports.",
-    technologies: ["Python", "Qwen", "Tesseract", "PaddleOCR", "Pandas"],
-    href: "https://github.com/a-gupta123",
-    featured: true,
-  },
-  {
-    id: "equilayer",
-    title: "EquiLayer",
-    category: "Web",
-    result: "Corporate actions engine",
-    description:
-      "A TypeScript trading operations layer that models corporate actions, settlement dates, and position updates so portfolio value stays consistent through splits, dividends, and trade lifecycle events.",
-    technologies: ["TypeScript", "React", "Next.js"],
-    href: "https://github.com/a-gupta123/equilayer",
-    featured: true,
-  },
-  {
     id: "allocator",
-    title: "Dynamic Memory Allocator",
-    category: "Systems",
-    result: "Segregated free lists",
-    description:
-      "Custom C allocator with size-class lists, block splitting, coalescing, and utilization/throughput tradeoffs under realistic allocation traces.",
-    technologies: ["C", "Linux", "GDB"],
-    href: "https://github.com/a-gupta123",
-    featured: true,
+    title: "Dynamic Memory Allocator (C)",
+    dates: "Jun 2026",
+    bullets: [
+      "Implemented a 64-bit dynamic memory allocator in C with explicit segregated free lists, block splitting, and coalescing to manage heap allocation and deallocation",
+      "Developed heap consistency checks and used GDB to identify memory corruption, segmentation faults, and violations of allocator invariants",
+    ],
   },
   {
-    id: "proxy",
-    title: "Concurrent Web Proxy & Cache",
-    category: "Systems",
-    result: "Thread-safe LRU",
-    description:
-      "Multithreaded HTTP proxy with POSIX threads, mutexes, reference counting, and LRU eviction for concurrent clients.",
-    technologies: ["C", "Pthreads", "HTTP"],
-    href: "https://github.com/a-gupta123",
-    featured: false,
+    id: "shell",
+    title: "Tiny Shell (C)",
+    dates: "Jul 2026",
+    bullets: [
+      "Implemented a Unix shell in C supporting foreground and background job execution, job control, signal handling, and input/output redirection",
+      "Developed process management using fork, execve, waitpid, and POSIX signals to correctly manage concurrent processes and prevent race conditions during job execution",
+    ],
+  },
+  {
+    id: "riseva",
+    title: "Riseva (2nd Place in Carnegie Mellon Product Hackathon)",
+    dates: "Feb 2026 — Mar 2026",
+    bullets: [
+      "Built an AI-powered learning platform using Python and React that generated personalized learning experiences and captured student interaction data for analysis",
+      "Developed an analytics dashboard that transformed learning data into insights for tracking student mastery and identifying learning gaps",
+    ],
+    href: "https://github.com/a-gupta123/riseva",
   },
   {
     id: "option-pricer",
-    title: "Monte Carlo Option Pricer",
-    category: "Quant",
-    result: "vs Black–Scholes",
-    description:
-      "European call pricer under geometric Brownian motion with antithetic variance reduction, confidence intervals, and Black–Scholes validation.",
-    technologies: ["Python", "NumPy", "SciPy"],
+    title: "Monte Carlo Option Pricer (Python)",
+    dates: "Nov 2025 — Dec 2025",
+    bullets: [
+      "Implemented Monte Carlo simulations to price European call options under geometric Brownian motion, including confidence interval estimation and statistical error analysis",
+      "Applied antithetic variates for variance reduction and analyzed simulation convergence against analytical Black-Scholes prices",
+    ],
     href: "https://github.com/a-gupta123/monte-carlo-option-pricer",
-    featured: false,
+  },
+  {
+    id: "proxy",
+    title: "Concurrent Web Proxy (C)",
+    dates: "Jul 2026",
+    bullets: [
+      "Implemented a multithreaded HTTP proxy server in C using POSIX threads, socket programming, and synchronization to concurrently process client requests and forward traffic to origin servers",
+      "Developed a thread-safe in-memory cache with LRU eviction and reference counting to reduce repeated-request latency while preventing race conditions during concurrent access",
+    ],
   },
   {
     id: "backtester",
-    title: "Moving Average Backtester",
-    category: "Quant",
-    result: "vs buy-and-hold",
-    description:
-      "SPY moving-average crossover backtest with lagged execution, transaction costs, CAGR, Sharpe, drawdowns, and a buy-and-hold baseline.",
-    technologies: ["Python", "Pandas", "yfinance"],
+    title: "Moving Average Crossover Backtester (Python)",
+    dates: "Dec 2025 — Jan 2026",
+    bullets: [
+      "Developed an event-driven Python backtesting engine for quantitative trading strategies on SPY with next-day execution to eliminate look-ahead bias",
+      "Evaluated strategy performance across market periods using CAGR, Sharpe ratio, volatility, and maximum drawdown to analyze risk-adjusted returns",
+    ],
     href: "https://github.com/a-gupta123/strategy-backtester",
-    featured: false,
   },
 ] as const;
 

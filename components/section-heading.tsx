@@ -10,7 +10,7 @@ export function SectionHeading({
   description?: string;
 }) {
   return (
-    <BlurFade inView delay={0.05} className="mx-auto mb-12 max-w-2xl text-center">
+    <BlurFade inView delay={0.05} className="mx-auto mb-8 max-w-3xl text-center">
       <p className="text-xs font-semibold tracking-[0.28em] text-ocean uppercase">
         {eyebrow}
       </p>

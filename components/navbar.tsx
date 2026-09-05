@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navItems, site } from "@/data/site";
+import { navItems } from "@/data/site";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -11,10 +11,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/80 text-mist backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="font-heading text-lg tracking-tight text-mist">
-          {site.initials}
-        </a>
+      <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-center px-4 sm:px-6 lg:px-8">
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
           {navItems.map((item) => (
             <a
@@ -37,7 +34,7 @@ export function Navbar() {
         </nav>
         <button
           type="button"
-          className="inline-flex size-9 items-center justify-center rounded-lg text-mist md:hidden"
+          className="absolute right-4 inline-flex size-9 items-center justify-center rounded-lg text-mist sm:right-6 md:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-label="Toggle navigation"
@@ -47,7 +44,7 @@ export function Navbar() {
       </div>
       {open ? (
         <nav className="border-t border-white/10 px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-3 text-sm">
+          <div className="flex flex-col items-center gap-3 text-sm">
             {navItems.map((item) => (
               <a
                 key={item.href}

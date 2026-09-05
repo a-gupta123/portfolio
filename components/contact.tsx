@@ -39,20 +39,9 @@ const contacts = [
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 bg-navy py-20 text-mist sm:py-24">
+    <section id="contact" className="scroll-mt-24 bg-navy py-16 text-mist sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 text-center">
-          <p className="text-xs font-semibold tracking-[0.28em] text-ice uppercase">
-            Contact
-          </p>
-          <h2 className="mt-3 font-heading text-3xl tracking-tight text-mist sm:text-4xl">
-            Let’s build something ambitious
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ice/85">
-            Interested in software engineering, AI, systems, or quantitative technology?
-            I’d love to connect.
-          </p>
-        </div>
+        <h2 className="sr-only">Contact</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {contacts.map((contact, index) => (
             <BlurFade key={contact.label} inView delay={index * 0.08}>
@@ -74,11 +63,6 @@ export function Contact() {
             </BlurFade>
           ))}
         </div>
-        {!site.phone ? (
-          <p className="mt-8 text-center text-sm text-ice/70">
-            Phone number available on request.
-          </p>
-        ) : null}
       </div>
     </section>
   );
