@@ -22,3 +22,5 @@ npm run dev
 ```
 
 Content lives in `data/site.ts`.
+
+The Cursor chat used to build the site is in [`prompt-log.txt`](./prompt-log.txt).

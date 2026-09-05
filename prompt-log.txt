@@ -1,0 +1,262 @@
+Prompt log — Aryan Gupta personal portfolio
+https://a-gupta123.github.io/portfolio/
+
+Copy-pasted conversational text from the Cursor chat used to build this site.
+Prompts and replies only. No generated source files, screenshots, or tool traces.
+
+========================================================================
+PROMPT 1
+========================================================================
+
+I want to build a professional personal porfolio website.
+
+Here are the sections I want:
+1. About me (education, CMU Math + CS student, GPA, photo, interests, skills)
+2. Experience section (for past internships)
+3. Projects section
+4. Contact section (with github, linkedin, email, phone number)
+
+Scour the internet for tools that would give a great UI for the website and then use those tools when building out the website.
+
+I want you to use this color scheme when designing the website: https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8.
+
+I want to have a deployed website url, so I created a github repo for this portfolio. Here it is: git@github.com:a-gupta123/portfolio.git.
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+[Reply 1]
+
+I'll start by reviewing the workspace, the color palette, and current UI tools so the portfolio can use a strong design system from the start.
+
+[Reply 2]
+
+The workspace is empty besides git, so I’ll pull your public profile and the palette next, then pick a modern UI stack around those details.
+
+[Reply 3]
+
+I’ll pull your GitHub projects and any local resume or photo so the site uses real content, then lock in the UI stack and GitHub Pages deploy.
+
+[Reply 4]
+
+A previous portfolio chat likely has your resume details. I’ll pull that plus your GitHub projects so the site isn’t filled with placeholders.
+
+[Reply 5]
+
+Your previous portfolio already has real resume copy. I’ll reuse that and fill any remaining gaps from GitHub before building the new site.
+
+[Reply 6]
+
+Scaffolding Next.js with Tailwind, then I’ll layer shadcn and Magic UI on the ocean-blue palette.
+
+[Reply 7]
+
+I have the stack and your resume content. Next I’ll theme the site to the Coolors palette and build the sections.
+
+[Reply 8]
+
+The GitHub avatar is a default identicon, so I’ll use a palette-matched AG monogram for the photo and start writing the site.
+
+[Reply 9]
+
+The hero photo and heading look like they aren’t rendering reliably. I’ll replace the SVG with a PNG and stabilize the name animation.
+
+[Reply 10]
+
+The portfolio is built, pushed, and the GitHub Actions **build already succeeded**. The public URL will be:
+
+**https://a-gupta123.github.io/portfolio/**
+
+GitHub still needs Pages turned on for that repo (the deploy job failed with a 404 until that setting exists). In the repo: **Settings → Pages → Build and deployment → Source → GitHub Actions**, then re-run [this workflow](https://github.com/a-gupta123/portfolio/actions/runs/33988863987). That is the same switch you used for the earlier personal-portfolio site.
+
+### What’s on the site
+- **About:** CMU Math + CS, 3.9 GPA, Princeton dual enrollment, National Merit, interests, skills
+- **Experience:** Mphasis AI internship and Rowan research
+- **Projects:** document-boundary pipeline, EquiLayer, allocator, proxy, option pricer, backtester
+- **Contact:** email (`aryangup@andrew.cmu.edu`), [GitHub](https://github.com/a-gupta123), [LinkedIn](https://www.linkedin.com/in/aryangupta111/)
+
+I could not find a public phone number, so the contact section says it is available on request. Add it in `data/site.ts` as `phone`. GitHub also has no headshot, so the photo is an AG monogram in your palette — replace `public/portrait.png` with a real portrait whenever you want.
+
+### UI stack
+I used the current 2026 portfolio stack: **Next.js 16**, **Tailwind CSS v4**, **shadcn/ui**, **Magic UI** (marquee, number ticker, border beam, particles, blur fade), and **Aceternity UI Spotlight**, with the Coolors palette `#03045E` `#0077B6` `#00B4D8` `#90E0EF` `#CAF0F8`.
+
+Content edits live in `data/site.ts`. Local preview: `npm run dev`.
+
+========================================================================
+PROMPT 2
+========================================================================
+
+I don't like this thing. Remove it from all parts of the website. Also don't make this skills section move
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+[Reply 1]
+
+I’ll remove the AG portrait card everywhere it appears and turn the skills row into a static layout instead of a moving marquee.
+
+[Reply 2]
+
+I’ll drop the AG portrait card from the hero and about sections, and replace the moving skills marquee with a static list.
+
+[Reply 3]
+
+The AG portrait card is gone from the hero and About sections. Skills no longer scroll; they sit in a static grid grouped as Languages, Systems, AI & Data, and Web & Tools.
+
+Refresh **http://localhost:3000** to see it. GPA is still on the education card.
+
+========================================================================
+PROMPT 3
+========================================================================
+
+remove the ag from the top left thing. Also center everything in the top box so that it is in the middle. 
+
+Make this my description in the header: Mathematics and Computer Science @ Carnegie Mellon University
+
+I love building things that solve problems I have and converting ideas into real projects!
+
+Also change the about me to say this:
+
+Education, interests, and stuff I'm passionate about
+
+also move that education graphic and coursework right after it says Education, interests, and stuff I'm passionate about
+
+then underneath that I will say my interests, which is the following:
+
+Hi! My interests are in building systems and projects that either solve problems I have or deepen my understanding of certain things I don't know much about. I think there's nothing not worth learning about, and I love exploring things I've never learned about before! I am most passionate about going deep in the technical side of projects and really understanding the underlying implementations.
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+[Reply 1]
+
+I’ll update the nav, center the hero, and reorder About so education and coursework sit right under the new heading.
+
+[Reply 2]
+
+The **AG** mark is gone from the top bar, and the hero content is centered.
+
+The top section now reads:
+
+- **Mathematics and Computer Science @ Carnegie Mellon University**
+- **I love building things that solve problems I have and converting ideas into real projects!**
+
+About is titled **Education, interests, and stuff I'm passionate about**, then the education card and coursework sit directly under that, then your interests paragraph. Refresh **http://localhost:3000** to see it.
+
+========================================================================
+PROMPT 4
+========================================================================
+
+PROJECTS
+Dynamic Memory Allocator (C)  |  Jun 2026
+Implemented a 64-bit dynamic memory allocator in C with explicit segregated free lists, block splitting, and coalescing to manage heap allocation and deallocation
+Developed heap consistency checks and used GDB to identify memory corruption, segmentation faults, and violations of allocator invariants
+Tiny Shell (C)  |  Jul 2026
+Implemented a Unix shell in C supporting foreground and background job execution, job control, signal handling, and input/output redirection
+Developed process management using fork, execve, waitpid, and POSIX signals to correctly manage concurrent processes and prevent race conditions during job execution
+Riseva (2nd Place in Carnegie Mellon Product Hackathon)  |  Feb 2026 - Mar 2026
+Built an AI-powered learning platform using Python and React that generated personalized learning experiences and captured student interaction data for analysis
+Developed an analytics dashboard that transformed learning data into insights for tracking student mastery and identifying learning gaps
+Monte Carlo Option Pricer (Python)  |  Nov 2025 – Dec 2025
+Implemented Monte Carlo simulations to price European call options under geometric Brownian motion, including confidence interval estimation and statistical error analysis
+Applied antithetic variates for variance reduction and analyzed simulation convergence against analytical Black-Scholes prices
+Concurrent Web Proxy (C)  |  Jul 2026
+Implemented a multithreaded HTTP proxy server in C using POSIX threads, socket programming, and synchronization to concurrently process client requests and forward traffic to origin servers
+Developed a thread-safe in-memory cache with LRU eviction and reference counting to reduce repeated-request latency while preventing race conditions during concurrent access
+Moving Average Crossover Backtester (Python)  |  Dec 2025 – Jan 2026
+Developed an event-driven Python backtesting engine for quantitative trading strategies on SPY with next-day execution to eliminate look-ahead bias
+Evaluated strategy performance across market periods using CAGR, Sharpe ratio, volatility, and maximum drawdown to analyze risk-adjusted returns
+
+use these 6 projects, for my selected work.
+
+also add 15-251 Great Ideas in Theoretical Computer Science, and 18-213 Introduction to Computer Systems, and 21-259 Calculus in Three Dimensions, and 21-260 Differential Equations to my coursework
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+[Reply 1]
+
+I’ll swap the projects list to those six and add the four new courses to coursework.
+
+[Reply 2]
+
+I’ll replace the project cards with your six entries (including dates and bullets) and append the four new courses.
+
+[Reply 3]
+
+Selected work now uses those six projects, in this order: Dynamic Memory Allocator, Tiny Shell, Riseva, Monte Carlo Option Pricer, Concurrent Web Proxy, and Moving Average Crossover Backtester.
+
+Coursework also includes **15-251**, **18-213**, **21-259**, and **21-260**. Refresh **http://localhost:3000** to see the updates.
+
+========================================================================
+PROMPT 5
+========================================================================
+
+remove this thing, but keep the contacts there.
+
+I also want you to cite any sources or tools you used at the bottom including the coolors thing, i don't want to claim things as I created when I did not create those things.
+
+also host this on the github pages
+
+https://a-gupta123.github.io/portfolio/
+
+i want the thing to show up properly when i open this
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+[Reply 1]
+
+I’ll drop the contact headline, add tool credits in the footer (including Coolors), then push so GitHub Pages can serve the live site.
+
+[Reply 2]
+
+The live preview still shows the old Contact heading, so I’m checking the source files and whether the page needs a refresh.
+
+[Reply 3]
+
+Contact heading is gone and the credits are in the footer. I’ll screenshot those sections, then commit and push so GitHub Pages can pick this up.
+
+[Reply 4]
+
+DOM checks confirm the Contact headline is gone and the cards plus credits remain. Next I’ll commit and push so GitHub Pages can deploy.
+
+[Reply 5]
+
+The live URL is already serving the old site with working `/portfolio/` assets. I’ll keep a single GitHub Pages workflow (without a double `basePath`) and push this update so the new contact and credits go live.
+
+[Reply 6]
+
+The Contact headline is gone, the three contact cards are still there, and the site is live at **https://a-gupta123.github.io/portfolio/**.
+
+The old “CONTACT / Let’s build something ambitious / I’d love to connect” block is removed. Email (`aryangup@andrew.cmu.edu`), GitHub, and LinkedIn stay. There is still no phone number on the page, since none is in the public profile.
+
+The footer now says the color palette is from Coolors and that the UI libraries were not created for this site. Those same credits are also in the README.
+
+GitHub Pages is serving the new build with `/portfolio/` asset paths, so CSS and fonts load on that URL. If you still see the previous version, do a hard refresh — GitHub’s CDN can cache for a few minutes.
+
+**Sources and tools used (not created here):**
+- Color palette: [Coolors](https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8)
+- [Next.js](https://nextjs.org/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/), [Magic UI](https://magicui.design/), [Aceternity UI](https://ui.aceternity.com/)
+- [Motion](https://motion.dev/), [Lucide](https://lucide.dev/), [Google Fonts](https://fonts.google.com/)
+- Hosting: [GitHub Pages](https://pages.github.com/)
+
+========================================================================
+PROMPT 6
+========================================================================
+
+ok now put this prompt log into the github repo
+
+A copy of your prompt log uploaded to your github repository: This is a text document that contains the prompts you used (simply copy-pasted) and the replies you received. This helps to document your process so that you can reflect on it later. Note: Your prompt log doesn't need to include the actual AI-produced files or any attached context; just the conversational text.
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+Added this conversational prompt log to the GitHub repository as prompt-log.txt.
