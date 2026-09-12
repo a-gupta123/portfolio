@@ -25,7 +25,7 @@ export function About() {
                   <div>
                     <p className="font-medium text-navy">{site.education.school}</p>
                     <p className="text-sm text-ocean">
-                      {site.education.degree} · {site.education.extra}
+                      {site.education.degree}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
                       {site.education.dates} · {site.education.graduation}

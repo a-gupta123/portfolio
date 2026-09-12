@@ -10,8 +10,7 @@ export const site = {
     "Hi! My interests are in building systems and projects that either solve problems I have or deepen my understanding of certain things I don't know much about. I think there's nothing not worth learning about, and I love exploring things I've never learned about before! I am most passionate about going deep in the technical side of projects and really understanding the underlying implementations.",
   education: {
     school: "Carnegie Mellon University",
-    degree: "B.S. Mathematical Sciences",
-    extra: "Additional Major in Computer Science",
+    degree: "B.S. in Mathematical Sciences and Computer Science",
     dates: "2025 — 2029",
     graduation: "Expected May 2029",
     gpa: 3.9,
