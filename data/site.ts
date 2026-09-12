@@ -149,7 +149,7 @@ export const projects = [
 export const skillCategories = [
   {
     title: "Languages",
-    skills: ["Python", "C", "C++", "Java", "SQL", "SML", "Assembly", "TypeScript", "JavaScript"],
+    skills: ["Python", "C", "C++", "Java", "SQL", "SML", "Assembly"],
   },
   {
     title: "Systems",
@@ -157,11 +157,11 @@ export const skillCategories = [
   },
   {
     title: "AI & Data",
-    skills: ["Qwen", "OCR", "PaddleOCR", "Tesseract", "Pandas", "NumPy", "Jupyter"],
+    skills: ["Qwen", "PaddleOCR", "Tesseract", "Pandas", "NumPy", "Jupyter"],
   },
   {
     title: "Web & Tools",
-    skills: ["React", "Next.js", "Tailwind CSS", "Git", "GitHub", "GDB", "VS Code"],
+    skills: ["React", "Tailwind CSS", "Git", "GitHub", "GDB", "VS Code"],
   },
 ] as const;
 

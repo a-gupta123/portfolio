@@ -5,33 +5,26 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SectionHeading } from "@/components/section-heading";
 
 export function Experience() {
   return (
     <section id="experience" className="scroll-mt-24 bg-white/40 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Experience"
-          title="Internships and research"
-          description="Industry and research work across AI document systems and experimental data analysis."
-        />
-        <div className="relative space-y-6 before:absolute before:top-3 before:bottom-3 before:left-4 before:w-px before:bg-pacific/40 md:before:left-1/2">
+        <h2 className="mb-10 text-center font-heading text-5xl tracking-tight text-navy sm:text-6xl">
+          Experience
+        </h2>
+        <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
           {experience.map((job, index) => (
-            <BlurFade key={job.id} inView delay={index * 0.08}>
-              <Card
-                className={`relative overflow-hidden ring-pacific/15 md:w-[calc(50%-1.5rem)] ${
-                  index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
-                }`}
-              >
-                {job.featured ? (
-                  <BorderBeam
-                    size={120}
-                    duration={8}
-                    colorFrom="#0077B6"
-                    colorTo="#00B4D8"
-                  />
-                ) : null}
+            <BlurFade key={job.id} inView delay={index * 0.08} className="h-full">
+              <Card className="relative h-full overflow-hidden ring-pacific/15">
+                <BorderBeam
+                  size={120}
+                  duration={8}
+                  colorFrom="#0077B6"
+                  colorTo="#00B4D8"
+                  reverse={index % 2 === 1}
+                  initialOffset={index % 2 === 0 ? 0 : 50}
+                />
                 <CardHeader>
                   <p className="text-xs font-semibold tracking-[0.2em] text-ocean uppercase">
                     {job.dates}

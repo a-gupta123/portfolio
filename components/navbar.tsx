@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/site";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -22,15 +20,6 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className={cn(
-              buttonVariants({ size: "sm" }),
-              "bg-pacific text-navy hover:bg-ice"
-            )}
-          >
-            Get in touch
-          </a>
         </nav>
         <button
           type="button"
