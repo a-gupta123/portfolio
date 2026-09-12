@@ -28,7 +28,7 @@ export function About() {
                       {site.education.degree}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {site.education.dates} · {site.education.graduation}
+                      {site.education.dates}
                     </p>
                   </div>
                 </div>

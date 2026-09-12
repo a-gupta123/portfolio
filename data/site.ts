@@ -11,8 +11,7 @@ export const site = {
   education: {
     school: "Carnegie Mellon University",
     degree: "B.S. in Mathematical Sciences and Computer Science",
-    dates: "2025 — 2029",
-    graduation: "Expected May 2029",
+    dates: "2025 - 2028 (Expected)",
     gpa: 3.9,
     location: "Pittsburgh, PA",
     prior: {
