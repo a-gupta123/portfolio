@@ -65,7 +65,7 @@ export function About() {
         </BlurFade>
 
         <BlurFade inView delay={0.12} className="mt-8">
-          <p className="mb-3 text-sm font-semibold tracking-wide text-ocean uppercase">
+          <p className="mb-3 text-center text-sm font-semibold tracking-wide text-ocean uppercase">
             Selected coursework
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -81,10 +81,10 @@ export function About() {
         </BlurFade>
 
         <BlurFade inView delay={0.18} className="mt-10">
-          <p className="mb-3 text-sm font-semibold tracking-wide text-ocean uppercase">
+          <p className="mb-3 text-center text-sm font-semibold tracking-wide text-ocean uppercase">
             Interests
           </p>
-          <p className="max-w-3xl text-base leading-relaxed text-navy/80 sm:text-lg">
+          <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-navy/80 sm:text-lg">
             {site.interestsBlurb}
           </p>
         </BlurFade>
