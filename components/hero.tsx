@@ -52,7 +52,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative -mt-16 overflow-hidden bg-navy pt-16 text-mist"
+      className="relative isolate -mt-16 overflow-clip bg-navy pt-16 text-mist [clip-path:inset(0)]"
     >
       <div
         aria-hidden="true"

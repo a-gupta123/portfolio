@@ -162,6 +162,18 @@
   }
 }
 
+[data-spline-space],
+#top {
+  overflow: clip;
+  clip-path: inset(0);
+}
+
+[data-spline-space] spline-viewer,
+[data-spline-space] canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-spline-space] {
     display: none;

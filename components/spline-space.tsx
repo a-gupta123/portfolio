@@ -1,18 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export function SplineSpace() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  if (!ready) {
+    return null;
+  }
+
   return (
     <div
       data-spline-space=""
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-[1] overflow-hidden motion-reduce:hidden"
+      className="pointer-events-none absolute inset-0 z-[1] overflow-clip [clip-path:inset(0)] [contain:paint] motion-reduce:hidden"
     >
       <div
-        className="absolute left-[-8vw] top-[18%] sm:left-[-2vw] lg:left-4"
+        className="absolute left-[-4vw] top-[12%] sm:left-0 lg:left-6"
         data-spline-body=""
         data-id="planet"
-        data-x="0vw, 6vw, 10vw, 4vw"
-        data-y="0vh, 8vh, 18vh, 28vh"
-        data-rotate="-12, 4, 14, 22"
-        data-scale="1, 0.97, 0.9, 0.82"
+        data-x="0vw, 3vw, 5vw, 2vw"
+        data-y="0px, 16px, 28px, 40px"
+        data-rotate="-12, 4, 10, 16"
+        data-scale="1, 0.98, 0.95, 0.92"
         style={{
           width: 320,
           height: 320,

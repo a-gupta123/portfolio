@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-20 sm:py-24">
+    <section id="about" className="relative z-10 scroll-mt-24 bg-background py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="About"
