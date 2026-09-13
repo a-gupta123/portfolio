@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const assetPrefix = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+
   return (
     <html
       lang="en"
@@ -47,7 +49,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="module"
           src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"
         />
-        <Script src="/spline-parallax.js?v=8" strategy="beforeInteractive" />
+        <Script
+          src={`${assetPrefix}/spline-parallax.js?v=9`}
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );
