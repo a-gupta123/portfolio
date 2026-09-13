@@ -13,6 +13,7 @@ This site is assembled from existing tools. I did not create the libraries or th
 - [shadcn/ui](https://ui.shadcn.com/), [Magic UI](https://magicui.design/), [Aceternity UI](https://ui.aceternity.com/)
 - [Motion](https://motion.dev/), [Lucide](https://lucide.dev/), [Google Fonts](https://fonts.google.com/)
 - Hosting: [GitHub Pages](https://pages.github.com/)
+- 3D: [Spline](https://spline.design/)
 
 ## Local development
 

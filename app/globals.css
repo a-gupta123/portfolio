@@ -83,6 +83,19 @@
   }
 }
 
+@keyframes spline-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  40% {
+    transform: translateY(-18px) rotate(7deg);
+  }
+  70% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+}
+
 :root {
   --background: #caf0f8;
   --foreground: #03045e;
@@ -140,6 +153,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-spline-space] {
+    display: none;
+  }
+
   *,
   *::before,
   *::after {

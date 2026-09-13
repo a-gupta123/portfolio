@@ -9,6 +9,7 @@ const credits = [
   { label: "Lucide", href: "https://lucide.dev/" },
   { label: "Google Fonts", href: "https://fonts.google.com/" },
   { label: "GitHub Pages", href: "https://pages.github.com/" },
+  { label: "Spline", href: "https://spline.design/" },
 ] as const;
 
 export function Footer() {

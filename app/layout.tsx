@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans, Fraunces, Geist_Mono } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
@@ -38,9 +39,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${fraunces.variable} ${geistMono.variable} h-full`}
+      className={`${dmSans.variable} ${fraunces.variable} ${geistMono.variable} h-full overflow-x-clip`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <script
+          type="module"
+          src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"
+        />
+        <Script src="/spline-parallax.js?v=8" strategy="beforeInteractive" />
+      </body>
     </html>
   );
 }

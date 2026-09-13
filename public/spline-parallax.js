@@ -1,0 +1,144 @@
+(() => {
+  if (window.__splineParallax) {
+    return;
+  }
+  window.__splineParallax = true;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const parse = (value, fallbackUnit) =>
+    (value || "")
+      .split(",")
+      .map((part) => {
+        const token = part.trim();
+        const match = token.match(/^(-?[\d.]+)([a-z%]*)$/i);
+        if (!match) {
+          return { n: Number(token) || 0, u: fallbackUnit };
+        }
+        return { n: Number(match[1]), u: match[2] || fallbackUnit };
+      });
+
+  const mixUnit = (frames, progress) => {
+    if (frames.length === 0) {
+      return "0px";
+    }
+    if (frames.length === 1) {
+      return `${frames[0].n}${frames[0].u}`;
+    }
+    const span = 1 / (frames.length - 1);
+    const index = Math.min(frames.length - 2, Math.floor(progress / span));
+    const local = (progress - index * span) / span;
+    const from = frames[index];
+    const to = frames[index + 1] || from;
+    return `${from.n + (to.n - from.n) * local}${from.u}`;
+  };
+
+  const mixNumber = (values, progress) => {
+    if (values.length === 0) {
+      return 0;
+    }
+    if (values.length === 1) {
+      return values[0];
+    }
+    const span = 1 / (values.length - 1);
+    const index = Math.min(values.length - 2, Math.floor(progress / span));
+    const local = (progress - index * span) / span;
+    return values[index] + ((values[index + 1] ?? values[index]) - values[index]) * local;
+  };
+
+  const readProgress = () => {
+    const scrolling = document.scrollingElement || document.documentElement;
+    const top = scrolling.scrollTop || window.scrollY || document.body.scrollTop || 0;
+    const max =
+      Math.max(scrolling.scrollHeight, document.documentElement.scrollHeight, document.body.scrollHeight) -
+      window.innerHeight;
+    return max > 0 ? Math.min(1, Math.max(0, top / max)) : 0;
+  };
+
+  const apply = (progress) => {
+    document.querySelectorAll("[data-spline-body]").forEach((node) => {
+      const x = parse(node.getAttribute("data-x"), "vw");
+      const y = parse(node.getAttribute("data-y"), "vh");
+      const rotate = parse(node.getAttribute("data-rotate"), "").map((frame) => frame.n);
+      const scale = parse(node.getAttribute("data-scale"), "").map((frame) => frame.n);
+      node.style.transform = `translate3d(${mixUnit(x, progress)}, ${mixUnit(y, progress)}, 0) rotate(${mixNumber(rotate, progress)}deg) scale(${mixNumber(scale, progress)})`;
+    });
+  };
+
+  let target = 0;
+  let current = 0;
+  let started = false;
+
+  const step = () => {
+    current += (target - current) * 0.06;
+    try {
+      apply(current);
+    } catch (error) {
+      console.warn("spline-parallax", error);
+    }
+  };
+
+  const onScroll = () => {
+    target = readProgress();
+  };
+
+  const hideWatermarks = () => {
+    document.querySelectorAll("spline-viewer").forEach((viewer) => {
+      const root = viewer.shadowRoot;
+      if (!root) {
+        return;
+      }
+      root.querySelectorAll("a").forEach((node) => {
+        node.style.setProperty("display", "none", "important");
+      });
+    });
+  };
+
+  const start = () => {
+    if (started) {
+      return;
+    }
+    started = true;
+    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    document.body.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+    step();
+    hideWatermarks();
+
+    const loop = () => {
+      step();
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+
+    let attempts = 0;
+    const retry = window.setInterval(() => {
+      hideWatermarks();
+      attempts += 1;
+      if (attempts > 24) {
+        window.clearInterval(retry);
+      }
+    }, 500);
+
+    window.setTimeout(() => {
+      const planet = document.querySelector("[data-spline-body]");
+      if (planet && !planet.style.transform) {
+        window.setInterval(() => {
+          onScroll();
+          step();
+        }, 32);
+      }
+    }, 250);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+  window.addEventListener("load", start, { once: true });
+})();
