@@ -86,6 +86,19 @@ export const experience = [
 
 export const projects = [
   {
+    id: "crossyroad",
+    title: "Alien Crossy Road",
+    dates: "Sep 2026",
+    featured: true,
+    image: "/projects/alien-crossy-road.png",
+    bullets: [
+      "Built a playable 3D Crossy Road-style endless runner in JavaScript and Three.js, reskinned around a green alien on a purple planet with UFO traffic, laser-beam hazards, and glowing liquid rivers",
+      "Implemented infinite chunked terrain, collision detection, jump movement, scoring, and a game-over/restart loop, then deployed the game to GitHub Pages",
+    ],
+    href: "https://github.com/a-gupta123/crossyroad",
+    demo: "https://a-gupta123.github.io/crossyroad/",
+  },
+  {
     id: "allocator",
     title: "Dynamic Memory Allocator (C)",
     dates: "Jun 2026",
@@ -147,7 +160,7 @@ export const projects = [
 export const skillCategories = [
   {
     title: "Languages",
-    skills: ["Python", "C", "C++", "Java", "SQL", "SML", "Assembly"],
+    skills: ["Python", "C", "C++", "Java", "JavaScript", "SQL", "SML", "Assembly"],
   },
   {
     title: "Systems",
@@ -159,7 +172,7 @@ export const skillCategories = [
   },
   {
     title: "Web & Tools",
-    skills: ["React", "Tailwind CSS", "Git", "GitHub", "GDB", "VS Code"],
+    skills: ["React", "Three.js", "Tailwind CSS", "Git", "GitHub", "GDB", "VS Code"],
   },
 ] as const;
 
