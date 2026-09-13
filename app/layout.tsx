@@ -50,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"
         />
         <Script
-          src={`${assetPrefix}/spline-parallax.js?v=9`}
+          src={`${assetPrefix}/spline-parallax.js?v=10`}
           strategy="beforeInteractive"
         />
       </body>

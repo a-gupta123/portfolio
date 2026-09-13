@@ -96,6 +96,16 @@
   }
 }
 
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 :root {
   --background: #caf0f8;
   --foreground: #03045e;

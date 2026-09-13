@@ -49,6 +49,14 @@
   };
 
   const readProgress = () => {
+    const space = document.querySelector("[data-spline-space]");
+    const hero = space && (space.closest("section") || space);
+    if (hero) {
+      const rect = hero.getBoundingClientRect();
+      const height = hero.offsetHeight || 1;
+      return Math.min(1, Math.max(0, -rect.top / height));
+    }
+
     const scrolling = document.scrollingElement || document.documentElement;
     const top = scrolling.scrollTop || window.scrollY || document.body.scrollTop || 0;
     const max =
