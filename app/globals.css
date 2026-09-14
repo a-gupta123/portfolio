@@ -83,6 +83,15 @@
   }
 }
 
+@keyframes moon-spin {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
 @keyframes spline-float {
   0%,
   100% {
