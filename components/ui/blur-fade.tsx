@@ -1,8 +1,7 @@
 "use client"
 
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
-  AnimatePresence,
   motion,
   useInView,
   type MotionProps,
@@ -35,18 +34,38 @@ export function BlurFade({
   children,
   className,
   variant,
-  duration = 0.5,
+  duration = 0.45,
   delay = 0,
   offset = 18,
   direction = "down",
   inView = false,
-  inViewMargin = "-12% 0px",
+  inViewMargin = "0px 0px -18% 0px",
   blur = "8px",
   ...props
 }: BlurFadeProps) {
   const ref = useRef(null)
-  const inViewResult = useInView(ref, { once: false, amount: "some", margin: inViewMargin })
-  const isInView = !inView || inViewResult
+  const [hasScrolled, setHasScrolled] = useState(false)
+  const inViewResult = useInView(ref, {
+    once: false,
+    amount: 0.4,
+    margin: inViewMargin,
+  })
+
+  useEffect(() => {
+    const onScroll = () => {
+      if ((window.scrollY || document.documentElement.scrollTop) > 40) {
+        setHasScrolled(true)
+      }
+    }
+
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  // Stay put on first paint so above-the-fold cards don't flicker.
+  // After the user scrolls, fade in on the way down and out on the way up.
+  const isInView = !inView || !hasScrolled || inViewResult
   const defaultVariants: Variants = {
     hidden: {
       [direction === "left" || direction === "right" ? "x" : "y"]:
@@ -71,24 +90,21 @@ export function BlurFade({
     hiddenFilter !== visibleFilter
 
   return (
-    <AnimatePresence>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        exit="hidden"
-        variants={combinedVariants}
-        transition={{
-          delay: 0.04 + delay,
-          duration,
-          ease: "easeOut",
-          ...(shouldTransitionFilter ? { filter: { duration } } : {}),
-        }}
-        className={className}
-        {...props}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div
+      ref={ref}
+      initial={false}
+      animate={isInView ? "visible" : "hidden"}
+      variants={combinedVariants}
+      transition={{
+        delay: hasScrolled ? delay : 0,
+        duration: hasScrolled ? duration : 0,
+        ease: "easeOut",
+        ...(shouldTransitionFilter ? { filter: { duration: hasScrolled ? duration : 0 } } : {}),
+      }}
+      className={className}
+      {...props}
+    >
+      {children}
+    </motion.div>
   )
 }
