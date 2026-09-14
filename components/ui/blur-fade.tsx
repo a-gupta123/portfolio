@@ -34,20 +34,20 @@ export function BlurFade({
   children,
   className,
   variant,
-  duration = 0.45,
+  duration = 0.18,
   delay = 0,
-  offset = 18,
+  offset = 8,
   direction = "down",
   inView = false,
-  inViewMargin = "0px 0px -18% 0px",
-  blur = "8px",
+  inViewMargin = "0px 0px 28% 0px",
+  blur = "4px",
   ...props
 }: BlurFadeProps) {
   const ref = useRef(null)
   const [hasScrolled, setHasScrolled] = useState(false)
   const inViewResult = useInView(ref, {
     once: false,
-    amount: 0.4,
+    amount: 0.12,
     margin: inViewMargin,
   })
 

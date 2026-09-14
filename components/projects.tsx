@@ -155,7 +155,7 @@ export function Projects() {
               <BlurFade
                 key={project.id}
                 inView
-                delay={index * 0.06}
+                delay={index * 0.02}
                 className={featured ? "md:col-span-2" : undefined}
               >
                 <Card

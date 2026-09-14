@@ -16,7 +16,7 @@ export function About() {
           title={site.aboutTitle}
         />
 
-        <BlurFade inView delay={0.08}>
+        <BlurFade inView>
           <Card className="ring-pacific/20">
             <CardContent className="space-y-4">
               <div className="flex flex-wrap items-end justify-between gap-4">
@@ -64,7 +64,7 @@ export function About() {
           </Card>
         </BlurFade>
 
-        <BlurFade inView delay={0.12} className="mt-8">
+        <BlurFade inView className="mt-8">
           <p className="mb-3 text-center text-sm font-semibold tracking-wide text-ocean uppercase">
             Selected coursework
           </p>
@@ -80,7 +80,7 @@ export function About() {
           </div>
         </BlurFade>
 
-        <BlurFade inView delay={0.18} className="mt-10">
+        <BlurFade inView className="mt-10">
           <p className="mb-3 text-center text-sm font-semibold tracking-wide text-ocean uppercase">
             Interests
           </p>
@@ -89,7 +89,7 @@ export function About() {
           </p>
         </BlurFade>
 
-        <BlurFade inView delay={0.2} className="mt-12">
+        <BlurFade inView className="mt-12">
           <p className="mb-6 text-center text-sm font-semibold tracking-wide text-ocean uppercase">
             Skills
           </p>

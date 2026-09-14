@@ -44,7 +44,7 @@ export function Contact() {
         <h2 className="sr-only">Contact</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {contacts.map((contact, index) => (
-            <BlurFade key={contact.label} inView delay={index * 0.08}>
+            <BlurFade key={contact.label} inView delay={index * 0.03}>
               <a href={contact.href} target={contact.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
                 <Card className="h-full bg-white/5 py-6 text-mist ring-ice/20 transition-colors hover:bg-white/10">
                   <CardContent className="flex items-start gap-4">
