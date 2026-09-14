@@ -20,9 +20,9 @@ const bodies: SpaceBody[] = [
   {
     id: "planet",
     kind: "earth",
-    size: 320,
-        className: "left-0 sm:left-2 lg:left-8",
-    x: "0vw, 4vw, 7vw, 3vw",
+    size: 300,
+    className: "left-8 sm:left-12 lg:left-16",
+    x: "0vw, 3vw, 6vw, 2vw",
     y: "0px, 120px, 260px, 420px",
     rotate: "-12, 6, 14, 22",
     scale: "1, 0.97, 0.93, 0.88",
@@ -102,19 +102,17 @@ function EarthGlobe({ duration }: { duration: string }) {
           animation: `spline-float ${duration} ease-in-out infinite`,
         }}
       >
-          <div className="h-[118%] w-[118%] -translate-x-[8%] -translate-y-[2%]">
-          <spline-viewer
-            url="https://prod.spline.design/8tO9NQOC8Shteqek/scene.splinecode"
-            background="transparent"
-            loading-anim-type="spinner-small-dark"
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "transparent",
-              display: "block",
-            }}
-          />
-        </div>
+        <spline-viewer
+          url="https://prod.spline.design/8tO9NQOC8Shteqek/scene.splinecode"
+          background="transparent"
+          loading-anim-type="spinner-small-dark"
+          style={{
+            width: "100%",
+            height: "100%",
+            background: "transparent",
+            display: "block",
+          }}
+        />
       </div>
     </>
   );

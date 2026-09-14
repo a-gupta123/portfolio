@@ -89,7 +89,7 @@ export function About() {
           </p>
         </BlurFade>
 
-        <div className="mt-12">
+        <BlurFade inView delay={0.2} className="mt-12">
           <p className="mb-6 text-center text-sm font-semibold tracking-wide text-ocean uppercase">
             Skills
           </p>
@@ -110,7 +110,7 @@ export function About() {
               </div>
             ))}
           </div>
-        </div>
+        </BlurFade>
       </div>
     </section>
   );

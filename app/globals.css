@@ -98,10 +98,10 @@
     transform: translateY(0) rotate(0deg);
   }
   40% {
-    transform: translateY(-18px) rotate(7deg);
+    transform: translateY(-12px) rotate(4deg);
   }
   70% {
-    transform: translateY(10px) rotate(-5deg);
+    transform: translateY(8px) rotate(-3deg);
   }
 }
 

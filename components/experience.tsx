@@ -10,9 +10,11 @@ export function Experience() {
   return (
     <section id="experience" className="scroll-mt-24 bg-white/40 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-10 text-center font-heading text-5xl tracking-tight text-navy sm:text-6xl">
-          Experience
-        </h2>
+        <BlurFade inView delay={0.04}>
+          <h2 className="mb-10 text-center font-heading text-5xl tracking-tight text-navy sm:text-6xl">
+            Experience
+          </h2>
+        </BlurFade>
         <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
           {experience.map((job, index) => (
             <BlurFade key={job.id} inView delay={index * 0.08} className="h-full">

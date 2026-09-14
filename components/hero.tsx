@@ -5,6 +5,7 @@ import { site } from "@/data/site";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { SplineSpace } from "@/components/spline-space";
 import { Starfield } from "@/components/starfield";
+import { BlurFade } from "@/components/ui/blur-fade";
 import { Particles } from "@/components/ui/particles";
 import { Spotlight } from "@/components/ui/spotlight";
 import { buttonVariants } from "@/components/ui/button";
@@ -46,7 +47,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,180,216,0.18),transparent_46%)]" />
       <SplineSpace />
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <BlurFade inView delay={0.02} className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-ice/20 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-ice">
             <MapPin className="size-3.5" />
             {site.location} · {site.status}
@@ -99,7 +100,7 @@ export function Hero() {
               <LinkedInIcon className="size-5" />
             </a>
           </div>
-        </div>
+        </BlurFade>
       </div>
     </section>
   );
