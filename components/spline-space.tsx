@@ -20,13 +20,14 @@ export function SplineSpace() {
       className="pointer-events-none absolute inset-0 z-[1] overflow-clip [clip-path:inset(0)] [contain:paint] motion-reduce:hidden"
     >
       <div
-        className="absolute left-[-4vw] top-[12%] sm:left-0 lg:left-6"
+        className="absolute left-[-4vw] top-[4%] sm:left-0 lg:left-6"
         data-spline-body=""
         data-id="planet"
-        data-x="0vw, 3vw, 5vw, 2vw"
-        data-y="0px, 16px, 28px, 40px"
-        data-rotate="-12, 4, 10, 16"
-        data-scale="1, 0.98, 0.95, 0.92"
+        data-clip-hero=""
+        data-x="0vw, 4vw, 7vw, 3vw"
+        data-y="0px, 140px, 300px, 480px"
+        data-rotate="-12, 6, 14, 22"
+        data-scale="1, 0.97, 0.93, 0.88"
         style={{
           width: 320,
           height: 320,

@@ -49,8 +49,7 @@
   };
 
   const readProgress = () => {
-    const space = document.querySelector("[data-spline-space]");
-    const hero = space && (space.closest("section") || space);
+    const hero = document.querySelector("#top") || document.querySelector("[data-spline-space]");
     if (hero) {
       const rect = hero.getBoundingClientRect();
       const height = hero.offsetHeight || 1;
@@ -66,12 +65,28 @@
   };
 
   const apply = (progress) => {
-    document.querySelectorAll("[data-spline-body]").forEach((node) => {
+    document.querySelectorAll("[data-spline-body], [data-star-layer]").forEach((node) => {
       const x = parse(node.getAttribute("data-x"), "vw");
-      const y = parse(node.getAttribute("data-y"), "vh");
-      const rotate = parse(node.getAttribute("data-rotate"), "").map((frame) => frame.n);
-      const scale = parse(node.getAttribute("data-scale"), "").map((frame) => frame.n);
-      node.style.transform = `translate3d(${mixUnit(x, progress)}, ${mixUnit(y, progress)}, 0) rotate(${mixNumber(rotate, progress)}deg) scale(${mixNumber(scale, progress)})`;
+      const y = parse(node.getAttribute("data-y"), "px");
+      const rotateAttr = node.getAttribute("data-rotate");
+      const scaleAttr = node.getAttribute("data-scale");
+      let yValue = mixUnit(y, progress);
+
+      if (node.hasAttribute("data-clip-hero")) {
+        const hero = node.closest("section");
+        if (hero) {
+          const maxY = Math.max(0, hero.clientHeight - node.offsetTop - node.offsetHeight * 0.55);
+          yValue = `${Math.min(mixNumber(y.map((frame) => frame.n), progress), maxY)}px`;
+        }
+      }
+
+      const rotateValue = rotateAttr
+        ? mixNumber(parse(rotateAttr, "").map((frame) => frame.n), progress)
+        : 0;
+      const scaleValue = scaleAttr
+        ? mixNumber(parse(scaleAttr, "").map((frame) => frame.n), progress)
+        : 1;
+      node.style.transform = `translate3d(${mixUnit(x, progress)}, ${yValue}, 0) rotate(${rotateValue}deg) scale(${scaleValue})`;
     });
   };
 
@@ -80,7 +95,7 @@
   let started = false;
 
   const step = () => {
-    current += (target - current) * 0.06;
+    current += (target - current) * 0.1;
     try {
       apply(current);
     } catch (error) {

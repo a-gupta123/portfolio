@@ -4,49 +4,11 @@ import { ArrowDownRight, MapPin } from "lucide-react";
 import { site } from "@/data/site";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { SplineSpace } from "@/components/spline-space";
+import { Starfield } from "@/components/starfield";
 import { Particles } from "@/components/ui/particles";
 import { Spotlight } from "@/components/ui/spotlight";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const starfield = [
-  "radial-gradient(1px 1px at 4% 8%, rgba(255,255,255,0.95), transparent)",
-  "radial-gradient(1.5px 1.5px at 11% 22%, rgba(202,240,248,0.9), transparent)",
-  "radial-gradient(1px 1px at 18% 6%, rgba(144,224,239,0.8), transparent)",
-  "radial-gradient(2px 2px at 27% 16%, rgba(255,255,255,0.85), transparent)",
-  "radial-gradient(1px 1px at 35% 4%, rgba(202,240,248,0.7), transparent)",
-  "radial-gradient(1px 1px at 43% 19%, rgba(144,224,239,0.75), transparent)",
-  "radial-gradient(1.5px 1.5px at 52% 9%, rgba(255,255,255,0.95), transparent)",
-  "radial-gradient(1px 1px at 61% 24%, rgba(202,240,248,0.8), transparent)",
-  "radial-gradient(2px 2px at 69% 7%, rgba(144,224,239,0.85), transparent)",
-  "radial-gradient(1px 1px at 77% 18%, rgba(255,255,255,0.7), transparent)",
-  "radial-gradient(1px 1px at 86% 5%, rgba(202,240,248,0.9), transparent)",
-  "radial-gradient(1.5px 1.5px at 94% 14%, rgba(255,255,255,0.8), transparent)",
-  "radial-gradient(1px 1px at 8% 36%, rgba(144,224,239,0.7), transparent)",
-  "radial-gradient(2px 2px at 16% 48%, rgba(255,255,255,0.9), transparent)",
-  "radial-gradient(1px 1px at 25% 33%, rgba(202,240,248,0.65), transparent)",
-  "radial-gradient(1.5px 1.5px at 34% 44%, rgba(144,224,239,0.85), transparent)",
-  "radial-gradient(1px 1px at 47% 38%, rgba(255,255,255,0.75), transparent)",
-  "radial-gradient(1px 1px at 55% 51%, rgba(202,240,248,0.8), transparent)",
-  "radial-gradient(2px 2px at 64% 35%, rgba(255,255,255,0.85), transparent)",
-  "radial-gradient(1px 1px at 73% 47%, rgba(144,224,239,0.7), transparent)",
-  "radial-gradient(1.5px 1.5px at 82% 32%, rgba(202,240,248,0.9), transparent)",
-  "radial-gradient(1px 1px at 91% 43%, rgba(255,255,255,0.65), transparent)",
-  "radial-gradient(1px 1px at 6% 62%, rgba(202,240,248,0.8), transparent)",
-  "radial-gradient(1.5px 1.5px at 19% 71%, rgba(255,255,255,0.85), transparent)",
-  "radial-gradient(2px 2px at 31% 58%, rgba(144,224,239,0.75), transparent)",
-  "radial-gradient(1px 1px at 42% 67%, rgba(202,240,248,0.7), transparent)",
-  "radial-gradient(1px 1px at 58% 74%, rgba(255,255,255,0.8), transparent)",
-  "radial-gradient(1.5px 1.5px at 70% 63%, rgba(144,224,239,0.85), transparent)",
-  "radial-gradient(1px 1px at 81% 78%, rgba(202,240,248,0.75), transparent)",
-  "radial-gradient(2px 2px at 93% 69%, rgba(255,255,255,0.9), transparent)",
-  "radial-gradient(1px 1px at 13% 88%, rgba(144,224,239,0.7), transparent)",
-  "radial-gradient(1.5px 1.5px at 28% 93%, rgba(255,255,255,0.8), transparent)",
-  "radial-gradient(1px 1px at 49% 86%, rgba(202,240,248,0.85), transparent)",
-  "radial-gradient(1px 1px at 67% 91%, rgba(144,224,239,0.7), transparent)",
-  "radial-gradient(2px 2px at 84% 95%, rgba(255,255,255,0.75), transparent)",
-  "radial-gradient(1px 1px at 97% 82%, rgba(202,240,248,0.8), transparent)",
-].join(",");
 
 export function Hero() {
   return (
@@ -54,25 +16,32 @@ export function Hero() {
       id="top"
       className="relative isolate -mt-16 overflow-clip bg-navy pt-16 text-mist [clip-path:inset(0)]"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 opacity-90"
-        style={{ backgroundImage: starfield, animation: "star-twinkle 5.5s ease-in-out infinite" }}
-      />
+      <Starfield />
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#90E0EF" />
       <Particles
-        className="absolute inset-0 z-0"
-        quantity={220}
+        className="absolute inset-0 z-0 motion-reduce:hidden"
+        quantity={520}
         color="#CAF0F8"
-        size={0.5}
-        ease={80}
+        size={0.7}
+        ease={70}
+        vy={0.18}
       />
       <Particles
-        className="absolute inset-0 z-0"
-        quantity={48}
+        className="absolute inset-0 z-0 motion-reduce:hidden"
+        quantity={140}
         color="#90E0EF"
-        size={1.2}
-        ease={90}
+        size={1.35}
+        ease={80}
+        vx={0.03}
+        vy={0.26}
+      />
+      <Particles
+        className="absolute inset-0 z-0 motion-reduce:hidden"
+        quantity={36}
+        color="#FFFFFF"
+        size={1.55}
+        ease={60}
+        vy={0.1}
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,180,216,0.18),transparent_46%)]" />
       <SplineSpace />
