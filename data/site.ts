@@ -155,6 +155,17 @@ export const projects = [
     ],
     href: "https://github.com/a-gupta123/strategy-backtester",
   },
+  {
+    id: "movie-recommender",
+    title: "Movie Recommender",
+    dates: "Sep 2026",
+    bullets: [
+      "Built a Flask web app that turns genre, mood, rating, and year filters into TMDB Discover queries and returns a short list of movie recommendations",
+      "Handled empty input, unmatched filters, network failures, and invalid API responses, then deployed a static GitHub Pages demo of the same search UI",
+    ],
+    href: "https://github.com/a-gupta123/movie-recommender",
+    demo: "https://a-gupta123.github.io/movie-recommender/",
+  },
 ] as const;
 
 export const skillCategories = [
