@@ -36,6 +36,7 @@ export function About() {
                   <NumberTicker
                     value={site.education.gpa}
                     decimalPlaces={1}
+                    delay={0}
                     className="font-heading text-5xl text-navy"
                   />
                   <span className="pb-1 text-sm font-medium text-ocean">GPA</span>
