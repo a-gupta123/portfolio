@@ -46,8 +46,10 @@ export function Chat() {
   }, [loading]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [messages, loading, error, waitNote]);
+    const scroller = bottomRef.current?.parentElement;
+    if (!scroller) return;
+    scroller.scrollTop = scroller.scrollHeight;
+  }, [messages, loading, error]);
 
   async function ask(question: string) {
     const text = question.trim();
