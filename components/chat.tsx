@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { ArrowUp, LoaderCircle } from "lucide-react";
 
 const API_URL = "https://chatbot-fsys.onrender.com/api/chat";
+const HEALTH_URL = "https://chatbot-fsys.onrender.com/health";
 
 const suggestions = [
   "What are you studying?",
@@ -23,12 +24,30 @@ export function Chat() {
   const [draft, setDraft] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [waitNote, setWaitNote] = useState("Thinking");
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+    void fetch(HEALTH_URL, { signal: controller.signal }).catch(() => undefined);
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      setWaitNote("Thinking");
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      setWaitNote("Waking up the server. The first answer can take a minute.");
+    }, 2000);
+    return () => window.clearTimeout(timer);
+  }, [loading]);
+
+  useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [messages, loading, error]);
+  }, [messages, loading, error, waitNote]);
 
   async function ask(question: string) {
     const text = question.trim();
@@ -113,7 +132,7 @@ export function Chat() {
           <div className="max-h-[28rem] min-h-56 space-y-3 overflow-y-auto bg-mist/40 px-4 py-5 sm:px-5">
             {messages.length === 0 && !loading ? (
               <p className="text-sm leading-relaxed text-ocean">
-                Ask about coursework, internships, or projects. If it isn&apos;t on this site, I&apos;ll say so.
+                Ask about coursework, internships, or projects. If it isn&apos;t on this site, I&apos;ll say so. The first answer after a pause can take a minute while the server wakes up.
               </p>
             ) : null}
             {messages.map((message, index) => (
@@ -136,7 +155,7 @@ export function Chat() {
               <div className="flex justify-start">
                 <p className="inline-flex items-center gap-2 rounded-2xl bg-white px-4 py-2.5 text-sm text-ocean ring-1 ring-pacific/20">
                   <LoaderCircle className="size-4 animate-spin" />
-                  Thinking
+                  {waitNote}
                 </p>
               </div>
             ) : null}
