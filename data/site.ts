@@ -1,6 +1,6 @@
 export const site = {
   name: "Aryan Gupta",
-  headline: "Mathematics and Computer Science @ Carnegie Mellon University",
+  headline: "Computer Science and Mathematics @ Carnegie Mellon University",
   status: "Open to software engineering internships",
   location: "Pittsburgh, PA",
   summary:
@@ -10,7 +10,7 @@ export const site = {
     "Hi! My interests are in building systems and projects that either solve problems I have or deepen my understanding of certain things I don't know much about. I think there's nothing not worth learning about, and I love exploring things I've never learned about before! I am most passionate about going deep in the technical side of projects and really understanding the underlying implementations.",
   education: {
     school: "Carnegie Mellon University",
-    degree: "B.S. in Mathematical Sciences and Computer Science",
+    degree: "B.S. in Computer Science and Mathematical Sciences",
     dates: "2025 - 2028 (Expected)",
     gpa: 3.9,
     location: "Pittsburgh, PA",
@@ -44,7 +44,7 @@ export const site = {
   github: "https://github.com/a-gupta123",
   linkedin: "https://www.linkedin.com/in/aryangupta111/",
   seo: {
-    title: "Aryan Gupta | Math + CS @ Carnegie Mellon",
+    title: "Aryan Gupta | CS + Math @ Carnegie Mellon",
     description:
       "Personal portfolio of Aryan Gupta, a Carnegie Mellon University student studying Mathematical Sciences with an Additional Major in Computer Science. Software engineering, AI, systems, and quantitative computing.",
     url: "https://a-gupta123.github.io/portfolio/",
