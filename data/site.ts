@@ -166,6 +166,17 @@ export const projects = [
     href: "https://github.com/a-gupta123/movie-recommender",
     demo: "https://a-gupta123.github.io/movie-recommender/",
   },
+  {
+    id: "quantlab",
+    title: "QuantLab",
+    dates: "Oct 2026",
+    bullets: [
+      "Built a trading-strategy research site that backtests a written rule on SPY daily prices, with next-day execution, fees, and a buy-and-hold benchmark",
+      "Added run comparison on shared trading days, a research workflow, and headline sentiment, then deployed the app on Vercel",
+    ],
+    href: "https://github.com/a-gupta123/quantlab",
+    demo: "https://quantlab-ashen.vercel.app",
+  },
 ] as const;
 
 export const skillCategories = [
