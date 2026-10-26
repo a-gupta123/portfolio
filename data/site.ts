@@ -87,12 +87,12 @@ export const experience = [
 export const projects = [
   {
     id: "deluge",
-    title: "Deluge",
+    title: "Deluge (2nd Place at SteelHacks, Pittsburgh's Largest Hackathon)",
     dates: "Sep 2026",
     featured: true,
     image: "/projects/deluge.jpg",
     bullets: [
-      "Built a SteelHacks flood simulator that loads real USGS terrain and solves the 2-D shallow-water equations on the GPU with WebGPU, live in the browser",
+      "Built a flood simulator that loads real USGS terrain and solves the 2-D shallow-water equations on the GPU with WebGPU, live in the browser",
       "Raised the Pittsburgh rivers to the 1936 crest, placed a North Shore levee to measure the land kept dry, and re-planned an evacuation route as streets flooded",
     ],
     href: "https://github.com/rkottomt/deluge-flood-sim",
