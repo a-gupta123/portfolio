@@ -120,6 +120,17 @@ export const projects = [
     demo: "https://quantlab-ashen.vercel.app",
   },
   {
+    id: "findmusic",
+    title: "FindMusic",
+    dates: "Oct 2026",
+    bullets: [
+      "Built a music search app that embeds 706 Song Describer captions in ChromaDB and ranks tracks by meaning, even when the query shares no words with the caption",
+      "A visitor can add a song while the app is running and search it immediately; each result quotes the stored description and links to Spotify",
+    ],
+    href: "https://github.com/a-gupta123/MusicFind",
+    demo: "https://findmusic-one.vercel.app",
+  },
+  {
     id: "crossyroad",
     title: "Alien Crossy Road",
     dates: "Sep 2026",
