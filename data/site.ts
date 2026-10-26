@@ -1,6 +1,6 @@
 export const site = {
   name: "Aryan Gupta",
-  headline: "Mathematics and Computer Science @ Carnegie Mellon University",
+  headline: "Computer Science and Mathematics @ Carnegie Mellon University",
   status: "Open to software engineering internships",
   location: "Pittsburgh, PA",
   summary:
@@ -10,7 +10,7 @@ export const site = {
     "Hi! My interests are in building systems and projects that either solve problems I have or deepen my understanding of certain things I don't know much about. I think there's nothing not worth learning about, and I love exploring things I've never learned about before! I am most passionate about going deep in the technical side of projects and really understanding the underlying implementations.",
   education: {
     school: "Carnegie Mellon University",
-    degree: "B.S. in Mathematical Sciences and Computer Science",
+    degree: "B.S. in Computer Science and Mathematical Sciences",
     dates: "2025 - 2028 (Expected)",
     gpa: 3.9,
     location: "Pittsburgh, PA",
@@ -46,8 +46,8 @@ export const site = {
   seo: {
     title: "Aryan Gupta | Math + CS @ Carnegie Mellon",
     description:
-      "Personal portfolio of Aryan Gupta, a Carnegie Mellon University student studying Mathematical Sciences with an Additional Major in Computer Science. Software engineering, AI, systems, and quantitative computing.",
-    url: "https://a-gupta123.github.io/portfolio/",
+      "Personal portfolio of Aryan Gupta, a Carnegie Mellon University student studying Computer Science and Mathematical Sciences. Software engineering, AI, systems, and quantitative computing.",
+    url: "https://a-gupta123.vercel.app/",
   },
 } as const;
 
@@ -86,11 +86,43 @@ export const experience = [
 
 export const projects = [
   {
+    id: "deluge",
+    title: "Deluge",
+    dates: "Sep 2026",
+    featured: true,
+    image: "/projects/deluge.jpg",
+    bullets: [
+      "Built a SteelHacks flood simulator that loads real USGS terrain and solves the 2-D shallow-water equations on the GPU with WebGPU, live in the browser",
+      "Raised the Pittsburgh rivers to the 1936 crest, placed a North Shore levee to measure the land kept dry, and re-planned an evacuation route as streets flooded",
+    ],
+    href: "https://github.com/rkottomt/deluge-flood-sim",
+    demo: "https://deluge-ruby.vercel.app/?preset=pittsburgh",
+  },
+  {
+    id: "riseva",
+    title: "Riseva (2nd Place in Carnegie Mellon Product Hackathon)",
+    dates: "Feb 2026 — Mar 2026",
+    bullets: [
+      "Built an AI-powered learning platform using Python and React that generated personalized learning experiences and captured student interaction data for analysis",
+      "Developed an analytics dashboard that transformed learning data into insights for tracking student mastery and identifying learning gaps",
+    ],
+    href: "https://github.com/a-gupta123/riseva",
+  },
+  {
+    id: "quantlab",
+    title: "QuantLab",
+    dates: "Oct 2026",
+    bullets: [
+      "Built a strategy research app that turns a plain-language rule into a checked backtest on dividend-adjusted SPY prices and compares it with buy-and-hold",
+      "Fills signals at the next day's open, compares saved runs on the same dates, and labels a pasted headline with FinBERT without treating that label as a forecast",
+    ],
+    href: "https://github.com/a-gupta123/quantlab",
+    demo: "https://quantlab-ashen.vercel.app",
+  },
+  {
     id: "crossyroad",
     title: "Alien Crossy Road",
     dates: "Sep 2026",
-    featured: true,
-    image: "/projects/alien-crossy-road.png",
     bullets: [
       "Built a playable 3D Crossy Road-style endless runner in JavaScript and Three.js, reskinned around a green alien on a purple planet with UFO traffic, laser-beam hazards, and glowing liquid rivers",
       "Implemented infinite chunked terrain, collision detection, jump movement, scoring, and a game-over/restart loop, then deployed the game to GitHub Pages",
@@ -115,16 +147,6 @@ export const projects = [
       "Implemented a Unix shell in C supporting foreground and background job execution, job control, signal handling, and input/output redirection",
       "Developed process management using fork, execve, waitpid, and POSIX signals to correctly manage concurrent processes and prevent race conditions during job execution",
     ],
-  },
-  {
-    id: "riseva",
-    title: "Riseva (2nd Place in Carnegie Mellon Product Hackathon)",
-    dates: "Feb 2026 — Mar 2026",
-    bullets: [
-      "Built an AI-powered learning platform using Python and React that generated personalized learning experiences and captured student interaction data for analysis",
-      "Developed an analytics dashboard that transformed learning data into insights for tracking student mastery and identifying learning gaps",
-    ],
-    href: "https://github.com/a-gupta123/riseva",
   },
   {
     id: "option-pricer",
@@ -192,4 +214,5 @@ export const navItems = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
+  { href: "#ask", label: "Ask" },
 ] as const;

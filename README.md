@@ -1,8 +1,8 @@
 # Aryan Gupta — Personal Portfolio
 
-Personal site for [Aryan Gupta](https://github.com/a-gupta123), a Mathematical Sciences + Computer Science student at Carnegie Mellon University.
+Personal site for [Aryan Gupta](https://github.com/a-gupta123), a Computer Science and Mathematical Sciences student at Carnegie Mellon University.
 
-**Live:** https://a-gupta123.github.io/portfolio/
+**Live:** https://a-gupta123.vercel.app/
 
 ## Credits
 
@@ -12,7 +12,7 @@ This site is assembled from existing tools. I did not create the libraries or th
 - [Next.js](https://nextjs.org/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/)
 - [shadcn/ui](https://ui.shadcn.com/), [Magic UI](https://magicui.design/), [Aceternity UI](https://ui.aceternity.com/)
 - [Motion](https://motion.dev/), [Lucide](https://lucide.dev/), [Google Fonts](https://fonts.google.com/)
-- Hosting: [GitHub Pages](https://pages.github.com/)
+- Hosting: [Vercel](https://vercel.com/)
 - 3D: [Spline](https://spline.design/)
 
 ## Local development

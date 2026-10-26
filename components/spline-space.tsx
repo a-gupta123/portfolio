@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-const assetPrefix = process.env.NODE_ENV === "production" ? "/portfolio" : "";
-
 type SpaceBody = {
   id: string;
   kind: "earth" | "moon";
@@ -132,7 +130,7 @@ function MoonGlobe({ duration }: { duration: string }) {
         <div
           className="h-full w-full rounded-full"
           style={{
-            backgroundImage: `url(${assetPrefix}/space/moon.jpg)`,
+            backgroundImage: "url(/space/moon.jpg)",
             backgroundSize: "200% 100%",
             backgroundPosition: "18% 50%",
             animation: "moon-spin 90s linear infinite",

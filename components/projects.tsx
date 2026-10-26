@@ -8,7 +8,6 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionHeading } from "@/components/section-heading";
-import { withBasePath } from "@/lib/paths";
 import { cn } from "@/lib/utils";
 
 type Project = (typeof projects)[number];
@@ -35,14 +34,14 @@ function ProjectPreview({
   image,
 }: {
   title: string;
-  demo: string;
+  demo?: string;
   image: string;
 }) {
   const [playing, setPlaying] = useState(false);
 
   return (
     <div className="relative aspect-video overflow-hidden bg-[#120a24] md:aspect-auto md:min-h-[300px] md:w-[54%] md:self-stretch">
-      {playing ? (
+      {playing && demo ? (
         <iframe
           src={demo}
           title={`${title} live demo`}
@@ -52,20 +51,22 @@ function ProjectPreview({
       ) : (
         <>
           <img
-            src={withBasePath(image)}
-            alt={`${title} gameplay`}
+            src={image}
+            alt={`${title} preview`}
             className="size-full object-cover"
           />
-          <button
-            type="button"
-            onClick={() => setPlaying(true)}
-            className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-navy/35 text-mist transition-colors hover:bg-navy/50"
-          >
-            <span className="inline-flex size-14 items-center justify-center rounded-full bg-pacific text-navy shadow-lg">
-              <Play className="size-6 fill-current" />
-            </span>
-            <span className="text-sm font-medium tracking-wide">Play in browser</span>
-          </button>
+          {demo ? (
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-navy/35 text-mist transition-colors hover:bg-navy/50"
+            >
+              <span className="inline-flex size-14 items-center justify-center rounded-full bg-pacific text-navy shadow-lg">
+                <Play className="size-6 fill-current" />
+              </span>
+              <span className="text-sm font-medium tracking-wide">Play in browser</span>
+            </button>
+          ) : null}
         </>
       )}
     </div>
@@ -91,7 +92,7 @@ function ProjectLinks({ project }: { project: Project }) {
               "h-10 rounded-full bg-pacific px-4 text-navy hover:bg-ice"
             )}
           >
-            Play live
+            View site
             <ArrowUpRight className="size-4" />
           </a>
         ) : null}
@@ -149,7 +150,6 @@ export function Projects() {
         <div className="grid gap-5 md:grid-cols-2">
           {projects.map((project, index) => {
             const featured = isFeatured(project);
-            const showPreview = featured && hasImage(project) && hasDemo(project);
 
             return (
               <BlurFade
@@ -164,10 +164,10 @@ export function Projects() {
                     featured && "gap-0 py-0 md:flex-row md:items-stretch"
                   )}
                 >
-                  {featured && hasImage(project) && hasDemo(project) ? (
+                  {featured && hasImage(project) ? (
                     <ProjectPreview
                       title={project.title}
-                      demo={project.demo}
+                      demo={hasDemo(project) ? project.demo : undefined}
                       image={project.image}
                     />
                   ) : null}

@@ -260,3 +260,34 @@ REPLIES
 ------------------------------------------------------------------------
 
 Added this conversational prompt log to the GitHub repository as prompt-log.txt.
+
+========================================================================
+PROMPT 7
+========================================================================
+
+Choose a public API you find interesting (preferably free or with a free tier).
+Decide on a small scope: fetch and display current data (e.g., current weather for a city), or fetch and show a list (e.g., latest quotes), or perhaps a plot (e.g. for stock data or recent temperatures), or add a small dynamic widget to your portfolio. You should choose something that can do more than just return the same data every time, e.g. you should fetch recent data, or you should allow the user to specify some parameters for the information they wish to retrieve.
+Use AI tools to help learn how the API works and to generate some code. As always, be explicit in your prompts so that you get results that align with your goals.
+Implement the code and test it locally. Remember, keep API keys and other secrets out of the repo — use environment variables or a local text file or config file excluded from version control. See below for instructions on setting up a .gitignore if needed. (This is only relevant if your API requires authentication or a secret key.)
+Try to break it. Test a misspelled or empty input, a search that returns no results, and a request that fails (turn your wifi off for a moment). Your app should say something useful rather than crashing with a traceback.
+Write a short README and prompt log as described above and include these in your repo.
+Push your code to a public GitHub repo.
+Make your video and upload it, and fill out the Google submission form before the deadline
+
+how can i integrate this into my portfolio somehow
+
+------------------------------------------------------------------------
+REPLIES
+------------------------------------------------------------------------
+
+[Reply 1]
+
+I'll look through your portfolio and the assignment notes so we can pick an API feature that fits the site instead of feeling bolted on.
+
+[Reply 2]
+
+The site is a static GitHub Pages export, so the API has to run in the browser. I'll wire in a live, parameterized widget that matches your location and math/CS work.
+
+[Reply 3]
+
+The site already shows Pittsburgh, so I'm adding a live Open-Meteo weather widget: search any city, plot recent temperatures, and handle empty, misspelled, and failed requests. No API key needed, which fits GitHub Pages.
